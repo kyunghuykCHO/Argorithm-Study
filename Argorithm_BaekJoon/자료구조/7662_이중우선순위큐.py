@@ -21,7 +21,7 @@ for _ in range(t):
                 continue
             heapq.heappop(min_list)
             count-=1
-    if count == 0:
+    if count == 0:  
         print("EMPTY")
     else:
         maxval = -heapq.heappop(max_list)
