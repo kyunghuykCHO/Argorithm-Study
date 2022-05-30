@@ -16,9 +16,9 @@ def solution(players, starting, power):
                 starting = i
                 solution(players, starting, power)
             else:
-                # print("남은 경기 전승 후 power return")
-                # print("결과")
-                # print(power)
+                print("남은 경기 전승 후 power return")
+                print("결과")
+                print(power)
                 return power
         else:
             # print("3승을 할 수 없으므로 패합니다.")
@@ -31,8 +31,8 @@ def solution(players, starting, power):
             power += k
         return power
 
-players = [1,2,4,7]
-power = 1
+players = [10,11,15,14,16,18,19,20]
+power = 10
 k = 2
 starting = 0
 
