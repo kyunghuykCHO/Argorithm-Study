@@ -16,3 +16,4 @@ else:
     for i in range(3, n):
         dp.append(max(dp[i-1], dp[i-3]+w[i-1]+w[i], dp[i-2]+w[i]))
     print(dp[n-1])
+    
