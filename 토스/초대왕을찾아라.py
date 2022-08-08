@@ -23,3 +23,5 @@ for i in dic.keys():
                         length = len(dic[k])
                         ans[i] = ans[i] + length
 print(ans)
+
+

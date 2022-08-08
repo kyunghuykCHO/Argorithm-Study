@@ -1,4 +1,5 @@
 # 딕셔너리를 이용한 DFS 탐색 
+# 우선순위큐를 이용하면 다익스트라와 같은 그래프 문제를 해결할 수 있다... --> 까먹음..ㅠ 
 
 def dfs(hp, dungeon, cnt,dungeons):
     global answer,visit
