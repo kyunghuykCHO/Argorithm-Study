@@ -12,11 +12,15 @@ graph = [[] for i in range(n + 1)]
 # 최단 거리 테이블을 모두 무한으로 초기화
 distance = [INF] * (n + 1)
 
+
+
 # 모든 간선 정보를 입력받기
 for _ in range(m):
     a, b, c = map(int, input().split())
     # a번 노드에서 b번 노드로 가는 비용이 c라는 의미
     graph[a].append((b, c))
+
+
 
 def dijkstra(start):
     q = []
@@ -37,8 +41,10 @@ def dijkstra(start):
                 distance[i[0]] = cost
                 heapq.heappush(q, (cost, i[0]))
 
+
 # 다익스트라 알고리즘을 수행
 dijkstra(start)
+
 
 # 모든 노드로 가기 위한 최단 거리를 출력
 for i in range(1, n + 1):
