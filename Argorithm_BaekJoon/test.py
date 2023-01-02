@@ -1,0 +1,29 @@
+# 문자열 나누기
+str = "abcd,efgh ijkl/mnop"
+strList = str.split(",")
+
+# 리스트 -> 변수 할당
+l = [1,2,3]
+a,b,c = l
+
+# 문자열의 특정 위치 뽑아내기
+s = "ksjdfnjkasdhbfs"
+s = s[1:len(s)-3]
+
+# 문자열 양 끝 제거
+tmp = "ksjdfnjkasdhbfs"
+tmp = tmp.lstrip("}")
+tmp = tmp.rstrip("{")
+
+# 리스트를 문자열로
+arr = ["a","b","c","d"]
+str = ''.join(arr)
+
+# map - 리스트 수정 
+answer = ["1","2","3"]
+answer = list(map(int, tmp))
+
+# 문자열 요소 제거
+answer = ["1","2","3"]
+answer.remove("1")
+
