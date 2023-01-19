@@ -27,3 +27,16 @@ answer = list(map(int, tmp))
 answer = ["1","2","3"]
 answer.remove("1")
 
+# 힙큐
+import heapq
+
+heap = []
+heapq.heappush(heap, 50)
+heapq.heapify(heap)
+result = heapq.heappop(heap)
+result2 = heap[0]
+heap_items = [1,3,5,7,9]
+max_heap = []
+for item in heap_items:
+  heapq.heappush(max_heap, (-item, item))
+print(max_heap)
