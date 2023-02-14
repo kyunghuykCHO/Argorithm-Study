@@ -40,3 +40,22 @@ max_heap = []
 for item in heap_items:
   heapq.heappush(max_heap, (-item, item))
 print(max_heap)
+
+
+
+
+
+# 약수 구하기 
+def get_divisor(n):
+    front = []
+    back = []
+
+    for i in range(1, int(n ** (1 / 2)) + 1):
+        if n % i == 0:
+            front.append(i)
+            if i != n // i:
+                back.append(n // i)
+    return front + back[::-1]
+
+
+print(get_divisor(8))

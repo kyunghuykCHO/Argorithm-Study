@@ -36,13 +36,11 @@
 
 
 
-
 def solution(scores):
     answer = 1
     myEtScore = scores[0][0]
     myEvScore = scores[0][1]
     scores.sort(key = lambda x : (-x[0], x[1]))
-    print(scores)
     prevEvScore = 0
     for score in scores:
         etScore = score[0]
@@ -57,6 +55,6 @@ def solution(scores):
             
     return answer
 
-print(solution([[3,3],[2,5],[6,3],[6,3],[5,2],[1,4]]))
+print(solution([[7,7],[6,10],[5,12],[12,5],[4,13],[13,4],[6,6]]))
 
-# 5 2    4 3    2 3    
+
