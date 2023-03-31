@@ -1,5 +1,4 @@
 def solution(play_time, adv_time, logs):    
-    timeblock_logs = []
     p = toSecond(play_time)
     a = toSecond(adv_time)
     viewers = [0 for _ in range(p+1)]
@@ -12,6 +11,7 @@ def solution(play_time, adv_time, logs):
         
     for i in range(1,len(viewers)):       
         viewers[i] += viewers[i-1]
+        
     for i in range(1,len(viewers)):       
         viewers[i] += viewers[i-1]
         
@@ -21,7 +21,7 @@ def solution(play_time, adv_time, logs):
         if largest_view < viewers[i]-viewers[i-a]:
             largest_view = viewers[i]-viewers[i-a]
             result = i+1 - a
-    result = toString(result)
+    result = toString(result) 
     return result
 
 

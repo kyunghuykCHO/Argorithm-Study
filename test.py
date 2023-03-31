@@ -59,3 +59,9 @@ def get_divisor(n):
 
 
 print(get_divisor(8))
+
+
+#2차원 리스트 정렬 
+lst = [[2, 1], [3, 4], [1, 2], [1, 3], [3, 2]]
+lst.sort(key=lambda x: (x[0], -x[1]))
+print(lst)
