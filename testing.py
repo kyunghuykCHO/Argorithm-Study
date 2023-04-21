@@ -1,163 +1,89 @@
-# def rotate90(twoDimensionList):
-#     N = len(twoDimensionList)
-#     rotatedList = [[0] * N for _ in range(N)]
-#     for r in range(N):
-#         for c in range(N):
-#             rotatedList[c][N-1-r] = twoDimensionList[r][c]
-#     return rotatedList
-
-# def solution(key, lock):
-#     answer = True
-#     s = len(key)*2 + len(lock) - 2
-#     m = [[2]*s for _ in range(s)]
-#     for i in range(len(key)-1,s-2):
-#         for j in range(len(key)-1,s-2):
-#             if lock[i-2][j-2] == 0 :
-#                 m[i][j] = 0
-#             else :
-#                 m[i][j] = 1
-
-#     case1 = key
-#     case2 = rotate90(key)
-#     case3 = rotate90(rotate90(key))
-#     case4 = rotate90(rotate90(rotate90(key)))
+# def solution1(sequence, k):
+#     dp = [[0]*2 for _ in range(len(sequence))]
+#     sum = sequence[0]
+#     if sequence[0] == k :
+#         return [0,0]
     
-#     for i in range(len(key)+len(lock)-1):
-#         for j in range(len(key)+len(lock)-1):
-#             for k in range(i, i+len(key)): 
-#                 for l in range(j, j+len(key)):
-#                     if m[k][l] == case1[k-i][l-j] : answer = False
-#                     # if m[k][l] == case2[k-i][l-j] : answer = False
-#                     # if m[k][l] == case3[k-i][l-j] : answer = False
-#                     # if m[k][l] == case4[k-i][l-j] : answer = False
-#             if answer == True :
-#                 return answer
-#             answer = True
-#             for k in range(i, i+len(key)): 
-#                 for l in range(j, j+len(key)):
-#                     # if m[k][l] == case1[k-i][l-j] : answer = False
-#                     if m[k][l] == case2[k-i][l-j] : answer = False
-#                     # if m[k][l] == case3[k-i][l-j] : answer = False
-#                     # if m[k][l] == case4[k-i][l-j] : answer = False
-#             if answer == True :
-#                 return answer
-#             answer = True
-#             for k in range(i, i+len(key)): 
-#                 for l in range(j, j+len(key)):
-#                     # if m[k][l] == case1[k-i][l-j] : answer = False
-#                     # if m[k][l] == case2[k-i][l-j] : answer = False
-#                     if m[k][l] == case3[k-i][l-j] : answer = False
-#                     # if m[k][l] == case4[k-i][l-j] : answer = False
-#             if answer == True :
-#                 return answer
-#             answer = True
-#             for k in range(i, i+len(key)): 
-#                 for l in range(j, j+len(key)):
-#                     # if m[k][l] == case1[k-i][l-j] : answer = False
-#                     # if m[k][l] == case2[k-i][l-j] : answer = False
-#                     # if m[k][l] == case3[k-i][l-j] : answer = False
-#                     if m[k][l] == case4[k-i][l-j] : answer = False
-#             if answer == True :
-#                 return answer
-    
-#     return answer
-
-# print(solution([[0, 0, 0], [1, 0, 0], [0, 1, 1]], [[1, 1, 1], [1, 1, 0], [1, 0, 1]]))
-
-
-
-
-# '''
-# 2  2  2  2  2  2  2
-# 2  2  2  2  2  2  2
-# 2  2  1  1  1  2  2 
-# 2  2  1  1  0  2  2
-# 2  2  1  0  1  2  2 
-# 2  2  2  2  2  2  2
-# 2  2  2  2  2  2  2
-# '''
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-def rotate90(twoDimensionList):
-    N = len(twoDimensionList)
-    rotatedList = [[0] * N for _ in range(N)]
-    for r in range(N):
-        for c in range(N):
-            rotatedList[c][N-1-r] = twoDimensionList[r][c]
-    return rotatedList
-
-def solution(key, lock):
-    answer = False
-    s = len(key)*2 + len(lock) - 2
-    m = [[2]*s for _ in range(s)]
-    for i in range(len(key)-1,s-2):
-        for j in range(len(key)-1,s-2):
-            if lock[i-2][j-2] == 0 : m[i][j] = 0
-            else : m[i][j] = 1
-
-    case1 = key
-    case2 = rotate90(key)
-    case3 = rotate90(rotate90(key))
-    case4 = rotate90(rotate90(rotate90(key)))
-    
-    for i in range(len(key)+len(lock)-1):
-        for j in range(len(key)+len(lock)-1):
-            
-            cnt = 0
-            for k in range(i, i+len(key)): 
-                for l in range(j, j+len(key)):
-                    if m[k][l] != 2 : cnt += 1
-                    
-            caseCnt1, caseCnt2, caseCnt3, caseCnt4 = 0, 0, 0, 0
-            for k in range(i, i+len(key)): 
-                for l in range(j, j+len(key)):
-                    if m[k][l] != 2 :
-                        if m[k][l] != case1[k-i][l-j] : caseCnt1+=1
-                        if m[k][l] != case2[k-i][l-j] : caseCnt2+=1
-                        if m[k][l] != case3[k-i][l-j] : caseCnt3+=1
-                        if m[k][l] != case4[k-i][l-j] : caseCnt4+=1
-            if caseCnt1 == cnt or caseCnt2 == cnt or caseCnt3 == cnt or caseCnt4 == cnt :
-                answer = True
-                return True
-            
-                    
-    return answer
-
-print(solution([[0, 0, 0], [1, 0, 0], [0, 1, 1]], [[1, 1, 1], [1, 1, 0], [1, 0, 1]]))
-
-
-
+#     for i in range(1,len(sequence)):
+#         endIndex = i
+#         sum += sequence[i]
+#         if sum >= k :
+#             sum2 = 0
+#             flag = False
+#             for j in range(i,-1,-1):
+#                 sum2 += sequence[j]
+#                 if sum2 == k :
+#                     startIndex = j
+#                     flag = True
+#             if flag == True and dp[i-1][1] != 0:
+#                 tmp1 = dp[i-1][1] - dp[i-1][0]
+#                 tmp2 = endIndex - startIndex
+#                 if tmp1 <= tmp2 :
+#                     dp[i] = dp[i-1]
+#                 else :
+#                     dp[i] = [startIndex,endIndex]
+#             if flag == True and dp[i-1][1] == 0:
+#                 dp[i] = [startIndex,endIndex]
+#             if flag == False:
+#                 dp[i] = dp[i-1]
+#     print(dp)
+#     return dp[-1]
 
 '''
-2  2  2  2  2  2  2
-2  2  2  2  2  2  2
-2  2  1  1  1  2  2 
-2  2  1  1  0  2  2
-2  2  1  0  1  2  2 
-2  2  2  2  2  2  2
-2  2  2  2  2  2  2
+1 1 3 3 5 
+k = 5 
 '''
+
+
+
+# def solution2(sequence, k):
+#     answers = []
+#     sum = 0
+#     l = 0
+#     r = -1
+    
+#     while True:
+#         if sum < k:
+#             r += 1
+#             if r >= len(sequence):
+#                 break
+#             sum += sequence[r]
+#         else:
+#             sum -= sequence[l]
+#             if l >= len(sequence):
+#                 break
+#             l += 1
+#         if sum == k:
+#             answers.append([l, r])
+    
+#     answers.sort(key=lambda x: (x[1]-x[0], x[0]))
+#     return answers[0]
+
+
+def solution(sequence, k):
+    answer = []    
+    sum = sequence[0]
+    startingPoint = 0
+    endPoint = 0
+    
+    if k == sum :
+        return [0,0]
+    
+    while True:
+        if sum > k :
+            sum -= sequence[startingPoint]
+            startingPoint += 1
+            if startingPoint == len(sequence): break
+        elif sum <= k :
+            endPoint += 1 
+            if endPoint == len(sequence): break
+            sum += sequence[endPoint]
+        if sum == k :
+            answer.append([startingPoint,endPoint])
+            
+    answer.sort(key=lambda x: (x[1]-x[0], x[0]))
+    return answer[0]
+
+
+print(solution([1,2,3,4,5],7))
+print(solution([2, 2, 2, 2, 2],6))
